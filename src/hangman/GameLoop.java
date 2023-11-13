@@ -13,32 +13,6 @@ public class GameLoop {
 	private char guess;
 	public static final int TRIES = 8;
 	
-	public String getWord(int index) {
-		switch (index) {
-		case 0: return "UNIVERSITY";
-		case 1: return "COMPUTER";
-		case 2: return "LAPTOP";
-		case 3: return "HEADPHONES";
-		case 4: return "FUZZY";
-		case 5: return "DOG";
-		case 6: return "KEYHOLE";
-		case 7: return "TELEPHONE";
-		case 8: return "PRINTER";
-		case 9: return "BUILDING";
-		case 10: return "TRUCK";
-		case 11: return "CAR";
-		case 12: return "HOUSE";
-		case 13: return "GAME";
-		case 14: return "FIELD";
-		case 15: return "CAT";
-		case 16: return "GIN";
-		case 17: return "PARTY";
-		case 18: return "PURPLE";
-		case 19: return "ADDRES";
-		case 20: return "WATERFALL";
-		default: return "Illegal index";
-		}
-	}; 
 	
 	public boolean GameLooplayground() {
 		
@@ -46,7 +20,9 @@ public class GameLoop {
 		Random random = new Random();
 		int randomNumber = random.nextInt(21);
 		
-		completed_word = getWord(randomNumber);
+		Dictionary d1 = new Dictionary();
+		
+		completed_word = d1.getWord(randomNumber);
 		
 		// Using String.repeat to fill the modified_word with '-'
 		modified_word = String.valueOf('-').repeat(completed_word.length());
@@ -79,6 +55,11 @@ public class GameLoop {
 	     return flag;
 	}
 	
+	private String getWord(int randomNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void search() {
 		 int index = -1;
 		 boolean flag = false;
