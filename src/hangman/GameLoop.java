@@ -1,6 +1,6 @@
 package hangman;
 
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class GameLoop {
@@ -14,11 +14,9 @@ public class GameLoop {
 	public static final int TRIES = 8;
 	
 	
-	public boolean GameLooplayground() {
+	public boolean GameLooplayground(int randomNumber) {
 		
 		boolean flag;
-		Random random = new Random();
-		int randomNumber = random.nextInt(21);
 		
 		Dictionary d1 = new Dictionary();
 		
@@ -35,6 +33,13 @@ public class GameLoop {
 			System.out.println("Your guess: ");
 			guess = scanner.next().charAt(0);
 			guess = Character.toUpperCase(guess);
+			for (int i = 0; i < modified_word.length(); i++) {
+	            while(modified_word.charAt(i) == guess) {
+	            	System.out.println("Your guess: ");
+	            	guess = scanner.next().charAt(0);
+	    			guess = Character.toUpperCase(guess);
+	            }
+			}
 			search();
 			if(completed_word.equalsIgnoreCase(modified_word)) {
 				flag = true;

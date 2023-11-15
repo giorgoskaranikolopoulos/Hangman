@@ -1,11 +1,15 @@
 package hangman;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		int previous_word = 30;
+		Random random = new Random();
+		int randomNumber = random.nextInt(21);
 		Scanner scanner = new Scanner(System.in);
 		
 		Statistics stats = new Statistics();
@@ -21,8 +25,12 @@ public class Main {
 		
 		while(selection != 'E') {
 			if(selection == 'N') {
+				while(previous_word == randomNumber) {
+					randomNumber = random.nextInt(21);
+				}
+				previous_word = randomNumber;
 				GameLoop game = new GameLoop();
-				if(game.GameLooplayground()) {
+				if(game.GameLooplayground(randomNumber)) {
 					stats.updateWins();
 				}
 				else {
